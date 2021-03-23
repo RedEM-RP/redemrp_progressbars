@@ -7,9 +7,12 @@ Add ```ensure redemrp_progressbars``` in server.cfg
 ## 2. How to start
 
 ```
- exports.redemrp_progressbars:DisplayProgressBar(5000, "Cooking...")
+ exports.redemrp_progressbars:DisplayProgressBar(5000, "Cooking...", function()
+  --do stuff
+ )
 ```
 * this resource has a build-in wait so you don't need to add ``` Wait(5000)``` after use the progress bar
+* callbacks are optional
 
 ![alt text](https://i.imgur.com/s1PiTUN.png)
 
