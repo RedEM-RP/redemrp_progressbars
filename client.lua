@@ -9,7 +9,7 @@ function RequestDict(dicts)
     end
 end
 
-exports('DisplayProgressBar', function(time, desciption)
+exports('DisplayProgressBar', function(time, desciption, cb)
     RequestDict(TextureDicts)
     local timer = (time / 100)
     local DisplayElemet = 0
@@ -23,6 +23,13 @@ exports('DisplayProgressBar', function(time, desciption)
             Text(0.5001, 0.93, 0.28, desciption, {255, 255, 255}, false, true)
         end
     end)
+    
+    if cb then
+        Citizen.CreateThread(function()
+            cb()
+        end)
+    end
+
     while DisplayElemet < 100 do
         DisplayElemet = DisplayElemet + 1
         Wait(timer)
